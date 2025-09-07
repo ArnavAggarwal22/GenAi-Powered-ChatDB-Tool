@@ -34,8 +34,8 @@ def create_agent():
     api_key = ""
     llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash",google_api_key=api_key, temperature=0)
     
-    db_user = "postgres"
-    db_password = "12345"
+    db_user = ""
+    db_password = ""
     db_host = "localhost"
     db_name = "UpharkaroSales"
     db = SQLDatabase.from_uri(f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}/{db_name}")
@@ -62,4 +62,5 @@ if question:
         response = agent.invoke({"input": question})
         
         st.header("Answer")
+
         st.write(response['output'])
